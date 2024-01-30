@@ -8,6 +8,10 @@
  * we've enabled that by default with the first line of code.
  */
 
-'use strict';
+"use strict";
 
 // add your functions here
+function replaceText(elem, str) {
+    const foo = document.querySelector(elem);
+    foo.replaceText(str);
+}
