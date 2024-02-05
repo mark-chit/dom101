@@ -66,13 +66,48 @@ function reverseList(query) {
   return list;
 }
 
-function mover(moveThis, appendToThis){
+function mover(moveThis, appendToThis) {
   let something = document.querySelector(moveThis);
   let moveTo = document.querySelector(appendToThis);
   moveTo.appendChild(something);
-  return moveThis; 
+  return moveThis;
 }
 
-function filler(list, candidates){
-  
+// Write a function `filler` that accepts two parameters, the first is a list element that should be added to, the second is an array of candidate strings that will be turned into list items. The function should add a list item for each string in the array to the list element. The function should return the list element.
+
+function filler(list, candidates) {
+  candidates.forEach((candidate) => {
+    let item = document.createElement("li");
+    item.textContent = candidate;
+    list.appendChild(item);
+  });
+  return list;
 }
+
+function dupe(selector) {
+  let original = document.querySelector(selector);
+  let copy = original.cloneNode(true);
+  original.parentElement.appendChild(copy);
+  return copy;
+}
+
+function removeAll(selector) {
+  let all = document.querySelectorAll(selector);
+  all.forEach((elem) => {
+    elem.remove();
+  });
+  return all;
+}
+
+function getUserData() {
+  let name = document.querySelector("#username");
+  let speed = document.querySelector("#speed");
+  let student = document.querySelector("#student");
+  let data = {
+    name: name.value,
+    speed: parseInt(speed.value, 10), // parse the string to an integer of base 10
+    student: student.checked,
+  };
+  return data;
+}
+
